@@ -1,21 +1,46 @@
 import 'package:flutter/material.dart';
 
 class AuthBackground extends StatelessWidget {
-  const AuthBackground({super.key});
+  final Widget child;
+
+  const AuthBackground({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
 //  TODO:"Container" to "SizedBox"
-    return const SizedBox(
+    return  SizedBox(
       // color: Colors.red,
       width: double.infinity,
       height: double.infinity,
-      child:  Stack(
+      child: Stack(
         children: [
           // 🐑
-          _PurpleBox(),
-          
+          const _PurpleBox(),
+          // 🐱‍🏍
+          const _SafeArea(),
+
+          child,
         ],
+      ),
+    );
+  }
+}
+
+//  ---- --- -- -- ---- --- -- SafeArea 🐱‍🏍
+class _SafeArea extends StatelessWidget {
+  const _SafeArea();
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Container(
+        width: double.infinity,
+        margin:const EdgeInsets.only(top: 30),
+        child:const Icon(
+          Icons.person_pin,
+          color: Colors.white,
+          size: 100,
+        ),
       ),
     );
   }
@@ -57,6 +82,7 @@ class _PurpleBox extends StatelessWidget {
         ),
       );
 }
+
 // --- --- -- -- -- -- -- -- Circles 🐑🐑
 class _Bubble extends StatelessWidget {
   const _Bubble();
@@ -68,9 +94,8 @@ class _Bubble extends StatelessWidget {
       height: 100,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(100),
-        color:const Color.fromRGBO(255, 255, 255, 0.06),
+        color: const Color.fromRGBO(255, 255, 255, 0.06),
       ),
-      
     );
   }
 }
