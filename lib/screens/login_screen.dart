@@ -45,38 +45,63 @@ class _LoginForm extends StatelessWidget {
     return Container(
       child: Form(
         //TODO: mantener la referencia KEY
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+
         child: Column(
           children: [
             TextFormField(
-                autocorrect: false,
-                keyboardType: TextInputType.emailAddress,
-                decoration: InputDecorations.authInputDecoration(
-                    hintText: 'example@gmail.com',
-                    labelText: 'Email',
-                    prefixIcon: Icons.alternate_email)),
+              autocorrect: false,
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecorations.authInputDecoration(
+                hintText: 'example@gmail.com',
+                labelText: 'Email',
+                prefixIcon: Icons.alternate_email,
+              ),
+              // --- --- --- Validator Email
+              validator: (value) {
+                String pattern =
+                    r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+                RegExp regExp = RegExp(pattern);
+
+                return regExp.hasMatch(value ?? '') ? null : 'Incorrect email';
+              },
+            ),
             const SizedBox(height: 30),
             TextFormField(
               autocorrect: false,
               obscureText: true,
               decoration: InputDecorations.authInputDecoration(
-                  hintText: '*******',
-                  labelText: 'Password',
-                  prefixIcon: Icons.lock),
+                hintText: '*******',
+                labelText: 'Password',
+                prefixIcon: Icons.lock,
+              ),
+              // --- -- --- ---  Password Validator
+              validator: (value) {
+
+                return (value != null && value.length >= 6 )
+                ? null
+                : 'valid 6 characters';
+
+              },
             ),
             const SizedBox(height: 30),
             MaterialButton(
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
               disabledColor: Colors.grey,
               elevation: 0,
               color: Colors.deepPurple,
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 15),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 80, vertical: 15),
                 child: const Text(
                   'Log in',
                   style: TextStyle(color: Colors.white),
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                // TODO: Log in
+              },
             )
           ],
         ),
