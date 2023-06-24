@@ -1,4 +1,6 @@
+import 'package:app_products/providers/login_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'package:app_products/widgets/widgets.dart';
 import 'package:app_products/ui/input_decorations.dart';
@@ -22,7 +24,10 @@ class LoginScreen extends StatelessWidget {
                         style: Theme.of(context).textTheme.headlineMedium),
                     const SizedBox(height: 10),
                     // const Text('Form'),
-                    const _LoginForm(),
+                    ChangeNotifierProvider(
+                      create: (_) => LoginFormProviders(),
+                      child: const _LoginForm(),
+                    )
                   ],
                 ),
               ),
@@ -42,9 +47,12 @@ class _LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final loginForm = Provider.of<LoginFormProviders>(context);
+
     return Container(
       child: Form(
-        //TODO: mantener la referencia KEY
+        key: loginForm.formKey,
         autovalidateMode: AutovalidateMode.onUserInteraction,
 
         child: Column(
@@ -57,6 +65,7 @@ class _LoginForm extends StatelessWidget {
                 labelText: 'Email',
                 prefixIcon: Icons.alternate_email,
               ),
+              onChanged: (value) => loginForm.email = value,
               // --- --- --- Validator Email
               validator: (value) {
                 String pattern =
@@ -75,13 +84,12 @@ class _LoginForm extends StatelessWidget {
                 labelText: 'Password',
                 prefixIcon: Icons.lock,
               ),
+              onChanged: (value) => loginForm.password = value,
               // --- -- --- ---  Password Validator
               validator: (value) {
-
-                return (value != null && value.length >= 6 )
-                ? null
-                : 'valid 6 characters';
-
+                return (value != null && value.length >= 6)
+                    ? null
+                    : 'valid 6 characters';
               },
             ),
             const SizedBox(height: 30),
@@ -100,7 +108,9 @@ class _LoginForm extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                // TODO: Log in
+                if( !loginForm.isValidForm()) return;
+
+                Navigator.pushReplacementNamed(context,'Home');
               },
             )
           ],
