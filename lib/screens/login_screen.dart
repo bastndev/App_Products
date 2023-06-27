@@ -47,14 +47,12 @@ class _LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final loginForm = Provider.of<LoginFormProviders>(context);
 
     return Container(
       child: Form(
         key: loginForm.formKey,
         autovalidateMode: AutovalidateMode.onUserInteraction,
-
         child: Column(
           children: [
             TextFormField(
@@ -99,19 +97,27 @@ class _LoginForm extends StatelessWidget {
               disabledColor: Colors.grey,
               elevation: 0,
               color: Colors.deepPurple,
+              onPressed: loginForm.isLoading
+                  ? null
+                  : () async {
+                      FocusScope.of(context).unfocus();
+                      if (!loginForm.isValidForm()) return;
+                      
+                      loginForm.isLoading = true;
+                      await Future.delayed(const Duration(seconds: 2));
+                      
+                      loginForm.isLoading = false;
+                      // ignore: use_build_context_synchronously
+                      Navigator.pushReplacementNamed(context,'Home');
+                    },
               child: Container(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 80, vertical: 15),
-                child: const Text(
-                  'Log in',
-                  style: TextStyle(color: Colors.white),
+                child: Text(
+                  loginForm.isLoading ? 'Wait...' : 'Log in',
+                  style: const TextStyle(color: Colors.white),
                 ),
               ),
-              onPressed: () {
-                if( !loginForm.isValidForm()) return;
-
-                Navigator.pushReplacementNamed(context,'Home');
-              },
             )
           ],
         ),
