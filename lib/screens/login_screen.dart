@@ -96,7 +96,7 @@ class _LoginForm extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10)),
               disabledColor: Colors.grey,
               elevation: 0,
-              color: Colors.deepPurple,
+              color: Colors.orange,
               onPressed: loginForm.isLoading
                   ? null
                   : () async {
@@ -105,7 +105,7 @@ class _LoginForm extends StatelessWidget {
                       
                       loginForm.isLoading = true;
                       await Future.delayed(const Duration(seconds: 2));
-                      
+                      // TODO: Valide Email and password
                       loginForm.isLoading = false;
                       // ignore: use_build_context_synchronously
                       Navigator.pushReplacementNamed(context,'Home');

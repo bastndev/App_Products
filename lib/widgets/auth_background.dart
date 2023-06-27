@@ -61,10 +61,10 @@ class _PurpleBox extends StatelessWidget {
       child: const Stack(
         children: [
           // -- --- --- 🐑🐑
-          Positioned(top: 30, left: 70, child: _Bubble()),
+          Positioned(top: 30, left: 55, child: _Bubble()),
           Positioned(top: -15, left: 320, child: _Bubble()),
           Positioned(top: -50, left: -50, child: _Bubble()),
-          Positioned(bottom: 10, left: -40, child: _Bubble()),
+          Positioned(bottom: -10, left: -40, child: _Bubble()),
           Positioned(bottom: 20, left: 270, child: _Bubble()),
           Positioned(bottom: -50, left: 120, child: _Bubble()),
         ],
@@ -76,8 +76,8 @@ class _PurpleBox extends StatelessWidget {
   BoxDecoration _purpleBackground() => const BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            Color.fromRGBO(63, 63, 156, 1),
-            Color.fromRGBO(90, 70, 178, 1),
+            Color.fromRGBO(243, 125, 0, 1),
+            Color.fromRGBO(185, 100, 1, 1),
           ],
         ),
       );
@@ -94,7 +94,7 @@ class _Bubble extends StatelessWidget {
       height: 100,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(100),
-        color: const Color.fromRGBO(255, 255, 255, 0.06),
+        color: const Color.fromARGB(25, 255, 255, 255),
       ),
     );
   }
