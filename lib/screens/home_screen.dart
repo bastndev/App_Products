@@ -11,8 +11,12 @@ class HomeScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: ListView.builder(
-        itemCount: 100,
+        itemCount: 50,
         itemBuilder: (BuildContext context, int index) => Text('Item:$index'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: () {},
       ),
     );
   }
