@@ -10,6 +10,10 @@ class HomeScreen extends StatelessWidget {
         title: const Text('Products'),
         centerTitle: true,
       ),
+      body: ListView.builder(
+        itemCount: 100,
+        itemBuilder: (BuildContext context, int index) => Text('Item:$index'),
+      ),
     );
   }
 }
