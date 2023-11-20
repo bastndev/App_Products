@@ -15,6 +15,9 @@ class HomeScreen extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) => Text('Item:$index'),
       ),
       floatingActionButton: FloatingActionButton(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.0),
+        ),
         child: const Icon(Icons.add),
         onPressed: () {},
       ),

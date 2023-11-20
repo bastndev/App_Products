@@ -21,6 +21,10 @@ class MyApp extends StatelessWidget {
         appBarTheme: const AppBarTheme(
           elevation: 0,
           color: Colors.black,
+        ),
+        floatingActionButtonTheme: const  FloatingActionButtonThemeData(
+          backgroundColor: Colors.black,
+          elevation: 0,
         )
       ),
     );
