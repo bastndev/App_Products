@@ -10,8 +10,11 @@ class ProductCard extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.only(top: 30, bottom: 40),
         width: double.infinity,
-        height: 400,
-        color: Colors.red,
+        height: 350,
+        decoration: BoxDecoration(
+          color: Colors.orange,
+          borderRadius: BorderRadius.circular(15.0), 
+        ),
       ),
     );
   }
