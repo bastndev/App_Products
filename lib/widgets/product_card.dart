@@ -62,10 +62,42 @@ class _backgroundImage extends StatelessWidget {
 class _productDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 70,
-      color: Colors.red,
+    return Padding(
+      padding: const EdgeInsets.only(right: 50),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+        width: double.infinity,
+        height: 70,
+        decoration: _buildBoxDecoration(),
+        child: const Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Hello Mayer 2023',
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+            Text(
+              'new Meta now',
+              style: TextStyle(fontSize: 14, color: Colors.white),
+            )
+          ],
+        ),
+      ),
     );
   }
+
+//-FIXME: this is bottom cube or box
+  BoxDecoration _buildBoxDecoration() => const BoxDecoration(
+        color: Colors.black,
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(25),
+          topRight: Radius.circular(25),
+        ),
+      );
 }
