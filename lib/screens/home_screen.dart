@@ -1,3 +1,4 @@
+import 'package:app_products/widgets/product_card.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -11,8 +12,8 @@ class HomeScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: ListView.builder(
-        itemCount: 50,
-        itemBuilder: (BuildContext context, int index) => Text('Item:$index'),
+        itemCount: 10,
+        itemBuilder: (BuildContext context, int index) => const ProductCard(),
       ),
       floatingActionButton: FloatingActionButton(
         shape: RoundedRectangleBorder(
