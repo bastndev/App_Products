@@ -40,12 +40,16 @@ class ProductCard extends StatelessWidget {
 class _backgroundImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
-      width: double.infinity,
-      height: 350,
-      child: FadeInImage(
-        placeholder: AssetImage('assets/image/jar-loading.gif'),
-        image: NetworkImage('https://via.placeholder.com/350x350/f6f6f6'),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(25.0),
+      child: const SizedBox(
+        width: double.infinity,
+        height: 350,
+        child: FadeInImage(
+          placeholder: AssetImage('assets/image/jar-loading.gif'),
+          image: NetworkImage('https://i.ytimg.com/vi/VdsJeyRhSWw/maxresdefault.jpg'),
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }
