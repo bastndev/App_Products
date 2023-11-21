@@ -12,7 +12,7 @@ class ProductCard extends StatelessWidget {
         width: double.infinity,
         height: 350,
         decoration: _cardDecoration(),
-        child:Stack(
+        child: Stack(
           children: [
             _backgroundImage(),
           ],
@@ -36,10 +36,17 @@ class ProductCard extends StatelessWidget {
   }
 }
 
+// ignore: camel_case_types
 class _backgroundImage extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const SizedBox(
+      width: double.infinity,
+      height: 350,
+      child: FadeInImage(
+        placeholder: AssetImage('assets/image/jar-loading.gif'),
+        image: NetworkImage('https://via.placeholder.com/350x350/f6f6f6'),
+      ),
+    );
   }
 }
