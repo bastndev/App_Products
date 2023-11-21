@@ -20,7 +20,12 @@ class ProductCard extends StatelessWidget {
             Positioned(
               top: 0,
               right: 0,
-              child: _priceTag(),
+              child: _PriceTag(),
+            ),
+            Positioned(
+              top: 0,
+              left: 0,
+              child: _NotAvailable(),
             )
           ],
         ),
@@ -43,13 +48,42 @@ class ProductCard extends StatelessWidget {
   }
 }
 
-// ignore: camel_case_types
-class _priceTag extends StatelessWidget {
+class _NotAvailable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 100,
       height: 55,
+      alignment: Alignment.center,
+      decoration: const BoxDecoration(
+        color: Colors.red,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(25),
+          bottomRight: Radius.circular(25),
+        ),
+      ),
+      child: const Padding(
+        padding: EdgeInsets.all(8.0),
+        child: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            'No Available',
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// ignore: camel_case_types
+class _PriceTag extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 100,
+      height: 55,
+      alignment: Alignment.center,
       decoration: const BoxDecoration(
         color: Colors.black,
         borderRadius: BorderRadius.only(
@@ -57,9 +91,15 @@ class _priceTag extends StatelessWidget {
           bottomLeft: Radius.circular(25),
         ),
       ),
-      child: const Text(
-        '\$109.11',
-        style: TextStyle(color: Colors.white, fontSize: 20),
+      child: const Padding(
+        padding: EdgeInsets.all(8.0),
+        child: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            '\$109.11',
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+        ),
       ),
     );
   }
