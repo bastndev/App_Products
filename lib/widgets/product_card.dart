@@ -13,9 +13,7 @@ class ProductCard extends StatelessWidget {
         height: 350,
         decoration: _cardDecoration(),
         child: Stack(
-          children: [
-            _backgroundImage(),
-          ],
+          children: [_backgroundImage(), _productDetails()],
         ),
       ),
     );
@@ -47,10 +45,19 @@ class _backgroundImage extends StatelessWidget {
         height: 350,
         child: FadeInImage(
           placeholder: AssetImage('assets/image/jar-loading.gif'),
-          image: NetworkImage('https://i.ytimg.com/vi/VdsJeyRhSWw/maxresdefault.jpg'),
+          image: NetworkImage(
+              'https://i.ytimg.com/vi/VdsJeyRhSWw/maxresdefault.jpg'),
           fit: BoxFit.cover,
         ),
       ),
     );
+  }
+}
+
+// ignore: camel_case_types
+class _productDetails extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
