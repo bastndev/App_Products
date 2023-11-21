@@ -17,6 +17,11 @@ class ProductCard extends StatelessWidget {
           children: [
             _backgroundImage(),
             _productDetails(),
+            Positioned(
+              top: 0,
+              right: 0,
+              child: _priceTag(),
+            )
           ],
         ),
       ),
@@ -34,6 +39,28 @@ class ProductCard extends StatelessWidget {
           blurRadius: 10,
         ),
       ],
+    );
+  }
+}
+
+// ignore: camel_case_types
+class _priceTag extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 100,
+      height: 55,
+      decoration: const BoxDecoration(
+        color: Colors.black,
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(25),
+          bottomLeft: Radius.circular(25),
+        ),
+      ),
+      child: const Text(
+        '\$109.11',
+        style: TextStyle(color: Colors.white, fontSize: 20),
+      ),
     );
   }
 }
