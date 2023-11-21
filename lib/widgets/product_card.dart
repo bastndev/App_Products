@@ -5,6 +5,10 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      width: double.infinity,
+      height: 400,
+      color: Colors.red,
+    );
   }
 }
