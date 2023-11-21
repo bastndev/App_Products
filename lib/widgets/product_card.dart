@@ -13,7 +13,11 @@ class ProductCard extends StatelessWidget {
         height: 350,
         decoration: _cardDecoration(),
         child: Stack(
-          children: [_backgroundImage(), _productDetails()],
+          alignment: Alignment.bottomLeft,
+          children: [
+            _backgroundImage(),
+            _productDetails(),
+          ],
         ),
       ),
     );
@@ -58,6 +62,10 @@ class _backgroundImage extends StatelessWidget {
 class _productDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      width: double.infinity,
+      height: 70,
+      color: Colors.red,
+    );
   }
 }
