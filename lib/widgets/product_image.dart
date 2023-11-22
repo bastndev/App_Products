@@ -6,7 +6,7 @@ class ProductImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 10, right: 10, top: 50),
+      padding: const EdgeInsets.only(left: 10, right: 10, top: 40),
       child: Container(
         decoration: _buildBoxDecoration(),
         width: double.infinity,
@@ -14,7 +14,7 @@ class ProductImage extends StatelessWidget {
         child: const ClipRRect(
           borderRadius: BorderRadius.all(Radius.circular(30)),
           child: FadeInImage(
-            image: NetworkImage('http://via.placeholder.com/300x300/black'),
+            image: NetworkImage('http://via.placeholder.com/300x300/pruple'),
             placeholder: AssetImage('assets/image/jar-loading.gif'),
             fit: BoxFit.cover,
           ),
