@@ -6,8 +6,15 @@ class ProductScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(
-        child: Text('Product Screen'),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Stack(
+              children: [],
+            )
+            
+          ],
+        ),
       ),
     );
   }
