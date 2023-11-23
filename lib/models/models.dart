@@ -1,1 +1,1 @@
-export 'package:app_products/widgets/product_card.dart';
+export 'package:app_products/models/product.dart';
