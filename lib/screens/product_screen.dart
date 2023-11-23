@@ -52,6 +52,9 @@ class ProductScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
         child: const Icon(Icons.save_alt_outlined),
         onPressed: () {
           //-TODO: Save price
