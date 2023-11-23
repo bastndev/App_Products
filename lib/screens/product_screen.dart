@@ -42,7 +42,9 @@ class ProductScreen extends StatelessWidget {
                   ),
                 ),
                 //--- --- --- Formulary
-                _productForm()
+                _productForm(),
+
+                const SizedBox(height: 100)
               ],
             )
           ],
@@ -53,6 +55,7 @@ class ProductScreen extends StatelessWidget {
 }
 
 class _productForm extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
     return Container();
