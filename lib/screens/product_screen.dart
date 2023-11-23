@@ -51,6 +51,7 @@ class ProductScreen extends StatelessWidget {
           ],
         ),
       ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
       floatingActionButton: FloatingActionButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
@@ -79,6 +80,7 @@ class _productForm extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: 10),
+              //--- --- --- Name
               TextFormField(
                 decoration: InputDecorations.authInputDecoration(
                   hintText: 'Product Name',
@@ -86,6 +88,7 @@ class _productForm extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
+              //--- --- --- Price
               TextFormField(
                 keyboardType: TextInputType.number,
                 decoration: InputDecorations.authInputDecoration(
@@ -94,6 +97,7 @@ class _productForm extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
+              //--- --- --- Active
               SwitchListTile.adaptive(
                 value: true,
                 title: const Text('Avaible'),
