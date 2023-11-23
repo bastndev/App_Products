@@ -5,4 +5,6 @@ class ProductService extends ChangeNotifier {
   final String _baseUrl = 'flutter-varios-3a863-default-rtdb.firebaseio.com';
 
   final List<Product> products = [];
+
+  //-TODO: product fetch 
 }
