@@ -88,7 +88,7 @@ class _productForm extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
-              //--- --- --- Price
+              //--- --- --- Price 
               TextFormField(
                 keyboardType: TextInputType.number,
                 decoration: InputDecorations.authInputDecoration(
