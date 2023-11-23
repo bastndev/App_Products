@@ -105,7 +105,7 @@ class _productForm extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(15)),
         boxShadow: [
           BoxShadow(
-            color: Colors.black45,
+            color: Colors.black26,
             offset: Offset(0, 5),
             blurRadius: 5,
           ),
