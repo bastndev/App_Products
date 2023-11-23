@@ -13,14 +13,29 @@ class ProductScreen extends StatelessWidget {
             Stack(
               children: [
                 const ProductImage(),
+                
                 Positioned(
                   top: 50,
-                  left: 20,
+                  left: 25,
                   child: IconButton(
                     onPressed: () => Navigator.of(context).pop(),
                     icon: const Icon(
                       Icons.arrow_back_ios,
-                      size: 30,
+                      size: 33,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: 50,
+                  right: 25,
+                  child: IconButton(
+                    onPressed: () {
+                      //-TODO:  Camera gallery
+                    },
+                    icon: const Icon(
+                      Icons.camera_alt_outlined,
+                      size: 33,
                       color: Colors.white,
                     ),
                   ),
