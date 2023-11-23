@@ -10,7 +10,7 @@ class InputDecorations {
     return InputDecoration(
       enabledBorder: const UnderlineInputBorder(
         borderSide: BorderSide(
-          color: Colors.blueAccent,
+          color: Colors.black,
         ),
       ),
       focusedBorder: const UnderlineInputBorder(

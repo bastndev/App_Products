@@ -62,7 +62,7 @@ class _productForm extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 440, horizontal: 10),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
         width: double.infinity,
         // height: 200,
         decoration: _buildBoxDecoration(),
@@ -70,22 +70,28 @@ class _productForm extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: 10),
-
               TextFormField(
                 decoration: InputDecorations.authInputDecoration(
                   hintText: 'Product Name',
                   labelText: 'Name:',
                 ),
-                
               ),
-              
               const SizedBox(height: 10),
-
               TextFormField(
+                keyboardType: TextInputType.number,
                 decoration: InputDecorations.authInputDecoration(
                   hintText: '\$0000',
                   labelText: 'Price:',
                 ),
+              ),
+              const SizedBox(height: 10),
+              SwitchListTile.adaptive(
+                value: true,
+                title: const Text('Avaible'),
+                activeColor: Colors.orange,
+                onChanged: (value) {
+                  //-TODO: pending
+                },
               ),
             ],
           ),
@@ -96,7 +102,7 @@ class _productForm extends StatelessWidget {
 
   BoxDecoration _buildBoxDecoration() => const BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.all(Radius.circular(30)),
+        borderRadius: BorderRadius.all(Radius.circular(15)),
         boxShadow: [
           BoxShadow(
             color: Colors.black45,
