@@ -1,3 +1,4 @@
+import 'package:app_products/ui/input_decorations.dart';
 import 'package:flutter/material.dart';
 import 'package:app_products/widgets/widgets.dart';
 
@@ -54,10 +55,54 @@ class ProductScreen extends StatelessWidget {
   }
 }
 
+// ignore: camel_case_types
 class _productForm extends StatelessWidget {
-  
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 440, horizontal: 10),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        width: double.infinity,
+        // height: 200,
+        decoration: _buildBoxDecoration(),
+        child: Form(
+          child: Column(
+            children: [
+              const SizedBox(height: 10),
+
+              TextFormField(
+                decoration: InputDecorations.authInputDecoration(
+                  hintText: 'Product Name',
+                  labelText: 'Name:',
+                ),
+                
+              ),
+              
+              const SizedBox(height: 10),
+
+              TextFormField(
+                decoration: InputDecorations.authInputDecoration(
+                  hintText: '\$0000',
+                  labelText: 'Price:',
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
+
+  BoxDecoration _buildBoxDecoration() => const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.all(Radius.circular(30)),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black45,
+            offset: Offset(0, 5),
+            blurRadius: 5,
+          ),
+        ],
+      );
 }
