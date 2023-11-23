@@ -12,8 +12,9 @@ class ProductScreen extends StatelessWidget {
           children: [
             Stack(
               children: [
+                //--- --- --- background Color
                 const ProductImage(),
-                
+                //--- --- --- Buttons
                 Positioned(
                   top: 50,
                   left: 25,
@@ -39,12 +40,21 @@ class ProductScreen extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                )
+                ),
+                //--- --- --- Formulary
+                _productForm()
               ],
             )
           ],
         ),
       ),
     );
+  }
+}
+
+class _productForm extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
