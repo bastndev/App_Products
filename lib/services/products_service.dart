@@ -6,8 +6,8 @@ import 'package:http/http.dart' as http;
 
 class ProductService extends ChangeNotifier {
   final String _baseUrl = 'flutter-varios-3a863-default-rtdb.firebaseio.com';
-
   final List<Product> products = [];
+
   bool isLoading = true;
 
   ProductService() {
@@ -17,14 +17,18 @@ class ProductService extends ChangeNotifier {
   //-TODO: <List<Product>>
   Future loadProducts() async {
     final url = Uri.https(_baseUrl, 'Products.json');
-    final rest = await http.get(url);
+    final resp = await http.get(url);
 
-    final Map<String, dynamic> productsMap = json.decode(rest.body);
+    final Map<String, dynamic> productsMap = json.decode(resp.body);
 
-    productsMap.forEach((key, value){
-      final tempProduct = Product.fromMap( value);
-      tempProduct.id = key;
+    productsMap.forEach((key, value) {
+      final tempProduct = Product.fromMap(value);
+      if (tempProduct != null) {
+        tempProduct.id = key;
+        products.add(tempProduct);
+      }
     });
 
+    print(products.isNotEmpty ? products[0].name : 'No products');
   }
 }
