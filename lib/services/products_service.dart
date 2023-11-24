@@ -11,7 +11,7 @@ class ProductService extends ChangeNotifier {
   bool isLoading = true;
 
   ProductService() {
-    this.loadProducts();
+    loadProducts();
   }
 
   //-TODO: <List<Product>>
@@ -20,6 +20,7 @@ class ProductService extends ChangeNotifier {
     final rest = await http.get(url);
 
     final Map<String, dynamic> productsMap = json.decode(rest.body);
+    // ignore: avoid_print
     print(productsMap);
   }
 }
