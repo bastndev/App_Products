@@ -11,7 +11,7 @@ class ProductService extends ChangeNotifier {
   bool isLoading = true;
 
   ProductService() {
-    this.loadProducts();
+    loadProducts();
   }
 
   //-TODO: <List<Product>>
@@ -29,6 +29,6 @@ class ProductService extends ChangeNotifier {
     });
 
     // ignore: avoid_print
-    print(products[0].price);
+    print(products[0].name);
   }
 }
