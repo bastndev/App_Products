@@ -29,6 +29,6 @@ class ProductService extends ChangeNotifier {
     });
 
     // ignore: avoid_print
-    print(products[0].name);
+    print(products[0].price);
   }
 }
