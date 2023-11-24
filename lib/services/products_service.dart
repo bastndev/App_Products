@@ -29,6 +29,7 @@ class ProductService extends ChangeNotifier {
       }
     });
 
+    // ignore: avoid_print
     print(products.isNotEmpty ? products[0].name : 'No products');
   }
 }
