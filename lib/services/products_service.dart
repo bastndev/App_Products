@@ -11,7 +11,7 @@ class ProductService extends ChangeNotifier {
   bool isLoading = true;
 
   ProductService() {
-    loadProducts();
+    this.loadProducts();
   }
 
   //-TODO: <List<Product>>
@@ -23,13 +23,12 @@ class ProductService extends ChangeNotifier {
 
     productsMap.forEach((key, value) {
       final tempProduct = Product.fromMap(value);
-      if (tempProduct != null) {
-        tempProduct.id = key;
-        products.add(tempProduct);
-      }
+      tempProduct.id = key;
+
+      products.add(tempProduct);
     });
 
     // ignore: avoid_print
-    print(products.isNotEmpty ? products[0].name : 'No products');
+    print(products[0].name);
   }
 }

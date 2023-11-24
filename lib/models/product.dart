@@ -4,59 +4,43 @@
 
 import 'dart:convert';
 
-Product productFromJson(String str) => Product.fromJson(json.decode(str));
-
-String productToJson(Product data) => json.encode(data.toJson());
-
 class Product {
-  A a;
-  A b;
+  Product(
+      {required this.available,
+      required this.name,
+      this.picture,
+      required this.price,
+      this.id});
 
-  Product({
-    required this.a,
-    required this.b,
-  });
-
-  factory Product.fromJson(Map<String, dynamic> json) => Product(
-        a: A.fromJson(json["A"]),
-        b: A.fromJson(json["B"]),
-      );
-
-  Object? get name => null;
-
-  Map<String, dynamic> toJson() => {
-        "A": a.toJson(),
-        "B": b.toJson(),
-      };
-
-  static fromMap(value) {}
-}
-
-class A {
   bool available;
   String name;
-  String picture;
+  String? picture;
   double price;
   String? id;
 
-  A({
-    required this.available,
-    required this.name,
-    required this.picture,
-    required this.price,
-  });
+  factory Product.fromJson(String str) => Product.fromMap(json.decode(str));
 
-  factory A.fromJson(Map<String, dynamic> json) => A(
+  String toJson() => json.encode(toMap());
+
+  factory Product.fromMap(Map<String, dynamic> json) => Product(
         available: json["available"],
         name: json["name"],
         picture: json["picture"],
-        price: json["price"]?.toDouble(),
+        price: json["price"].toDouble(),
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         "available": available,
         "name": name,
         "picture": picture,
         "price": price,
       };
+
+  Product copy() => Product(
+        available: available,
+        name: name,
+        picture: picture,
+        price: price,
+        id: id,
+      );
 }
