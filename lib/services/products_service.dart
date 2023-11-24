@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:app_products/models/models.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -16,5 +18,8 @@ class ProductService extends ChangeNotifier {
   Future loadProducts() async {
     final url = Uri.https(_baseUrl, 'Products.json');
     final rest = await http.get(url);
+
+    final Map<String, dynamic> productsMap = json.decode(rest.body);
+    print(productsMap);
   }
 }
