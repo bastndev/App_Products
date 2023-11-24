@@ -26,13 +26,16 @@ class Product {
         "A": a.toJson(),
         "B": b.toJson(),
     };
+
+  static fromMap(value) {}
 }
 
 class A {
     bool available;
     String name;
-    String picture;
+    String? picture;
     double price;
+    String? id;
 
     A({
         required this.available,

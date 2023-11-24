@@ -20,7 +20,11 @@ class ProductService extends ChangeNotifier {
     final rest = await http.get(url);
 
     final Map<String, dynamic> productsMap = json.decode(rest.body);
-    // ignore: avoid_print
-    print(productsMap);
+
+    productsMap.forEach((key, value){
+      final tempProduct = Product.fromMap( value);
+      tempProduct.id = key;
+    });
+
   }
 }
