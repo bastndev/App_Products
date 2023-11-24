@@ -7,5 +7,12 @@ class ProductService extends ChangeNotifier {
   final List<Product> products = [];
   bool isLoading = true;
 
-  //-TODO: product fetch
+  ProductService() {
+    this.loadProducts();
+  }
+
+  //-TODO: <List<Product>>
+  Future loadProducts() async {
+    
+  }
 }
