@@ -1,7 +1,10 @@
+import 'package:app_products/models/models.dart';
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {
-  const ProductCard({super.key});
+  final Product product;
+
+  const ProductCard({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +70,7 @@ class _NotAvailable extends StatelessWidget {
         child: FittedBox(
           fit: BoxFit.scaleDown,
           child: Text(
-            'No Available',
+            'No ',
             style: TextStyle(color: Colors.white, fontSize: 20),
           ),
         ),
