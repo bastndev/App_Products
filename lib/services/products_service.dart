@@ -28,7 +28,5 @@ class ProductService extends ChangeNotifier {
       products.add(tempProduct);
     });
 
-    // ignore: avoid_print
-    print(products[0].name);
   }
 }
