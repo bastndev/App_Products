@@ -26,7 +26,7 @@ class ProductCard extends StatelessWidget {
             Positioned(
               top: 0,
               right: 0,
-              child: _PriceTag(),
+              child: _PriceTag(product.price),
             ),
             if (product.available)
               Positioned(
@@ -85,6 +85,9 @@ class _NotAvailable extends StatelessWidget {
 
 // ignore: camel_case_types
 class _PriceTag extends StatelessWidget {
+  final double price;
+
+  const _PriceTag(this.price);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -98,13 +101,13 @@ class _PriceTag extends StatelessWidget {
           bottomLeft: Radius.circular(25),
         ),
       ),
-      child: const Padding(
-        padding: EdgeInsets.all(8.0),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
         child: FittedBox(
           fit: BoxFit.scaleDown,
           child: Text(
-            '\$109.11',
-            style: TextStyle(color: Colors.white, fontSize: 20),
+            '\$$price',
+            style: const TextStyle(color: Colors.white, fontSize: 20),
           ),
         ),
       ),
