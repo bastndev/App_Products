@@ -18,7 +18,7 @@ class ProductCard extends StatelessWidget {
         child: Stack(
           alignment: Alignment.bottomLeft,
           children: [
-            _backgroundImage(),
+            _backgroundImage(product.picture),
             _productDetails(),
             Positioned(
               top: 0,
@@ -110,17 +110,20 @@ class _PriceTag extends StatelessWidget {
 
 // ignore: camel_case_types
 class _backgroundImage extends StatelessWidget {
+  final String? url;
+
+  const _backgroundImage(this.url);
+
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(25.0),
-      child: const SizedBox(
+      child: SizedBox(
         width: double.infinity,
         height: 350,
         child: FadeInImage(
-          placeholder: AssetImage('assets/image/jar-loading.gif'),
-          image: NetworkImage(
-              'https://i.ytimg.com/vi/VdsJeyRhSWw/maxresdefault.jpg'),
+          placeholder: const AssetImage('assets/image/jar-loading.gif'),
+          image: NetworkImage(url!),
           fit: BoxFit.cover,
         ),
       ),
