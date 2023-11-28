@@ -29,6 +29,10 @@ class ProductService extends ChangeNotifier {
 
       products.add(tempProduct);
     });
+
+    isLoading = false;
+    notifyListeners();
+
     return products;
   }
 }
