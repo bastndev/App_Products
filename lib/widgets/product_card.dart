@@ -19,17 +19,21 @@ class ProductCard extends StatelessWidget {
           alignment: Alignment.bottomLeft,
           children: [
             _backgroundImage(product.picture),
-            _productDetails(),
+            _productDetails(
+              title: product.name,
+              subTitle: product.id!,
+            ),
             Positioned(
               top: 0,
               right: 0,
               child: _PriceTag(),
             ),
-            Positioned(
-              top: 0,
-              left: 0,
-              child: _NotAvailable(),
-            )
+            if (product.available)
+              Positioned(
+                top: 0,
+                left: 0,
+                child: _NotAvailable(),
+              )
           ],
         ),
       ),
@@ -70,7 +74,7 @@ class _NotAvailable extends StatelessWidget {
         child: FittedBox(
           fit: BoxFit.scaleDown,
           child: Text(
-            'No ',
+            'No available ',
             style: TextStyle(color: Colors.white, fontSize: 20),
           ),
         ),
@@ -122,6 +126,7 @@ class _backgroundImage extends StatelessWidget {
         width: double.infinity,
         height: 350,
         child: FadeInImage(
+          //--- -FIXME: agregar producto no disponible
           placeholder: const AssetImage('assets/image/jar-loading.gif'),
           image: NetworkImage(url!),
           fit: BoxFit.cover,
@@ -133,6 +138,11 @@ class _backgroundImage extends StatelessWidget {
 
 // ignore: camel_case_types
 class _productDetails extends StatelessWidget {
+  final String title;
+  final String subTitle;
+
+  const _productDetails({required this.title, required this.subTitle});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -142,12 +152,12 @@ class _productDetails extends StatelessWidget {
         width: double.infinity,
         height: 70,
         decoration: _buildBoxDecoration(),
-        child: const Column(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Hello Mayer 2023',
-              style: TextStyle(
+              title,
+              style: const TextStyle(
                 fontSize: 18,
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
@@ -156,8 +166,8 @@ class _productDetails extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
             Text(
-              'new Meta now',
-              style: TextStyle(fontSize: 14, color: Colors.white),
+              subTitle,
+              style: const TextStyle(fontSize: 14, color: Colors.white),
             )
           ],
         ),
